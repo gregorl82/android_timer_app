@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    android:layout_height="match_parent">
 
-    <TextClock
-        android:id="@+id/clockText"
+    <TextView
+        android:id="@+id/timerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/timer_text"
-        android:textSize="60sp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:text="@string/timer_text"
+        android:textSize="60sp" />
 
     <Button
-        android:id="@+id/start_button"
+        android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/start_button_text"
+        android:layout_below="@id/timerTextView"
         android:layout_centerHorizontal="true"
-        android:textSize="16sp"
-        android:layout_below="@id/clockText"/>
+        android:text="@string/start_button_text"
+        android:textSize="16sp" />
 
 </RelativeLayout>
