@@ -12,15 +12,16 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final long TIME_IN_MILLIS = 600000;
+    private static final long TIME_IN_MILLISECONDS = 600000;
 
     private CountDownTimer mCountDownTimer;
     private Button mStartPauseButton;
+    private Button mResetButton;
     private TextView mClockText;
 
     private boolean mTimerRunning;
 
-    private long mTimeLeftInMillis = TIME_IN_MILLIS;
+    private long mTimeLeftInMillis = TIME_IN_MILLISECONDS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         mClockText = findViewById(R.id.timerTextView);
         mStartPauseButton = findViewById(R.id.startButton);
+        mResetButton = findViewById(R.id.resetButton);
 
         mStartPauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     startTimer();
                 }
+            }
+        });
+
+        mResetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetTimer();
             }
         });
     }
@@ -59,12 +68,19 @@ public class MainActivity extends AppCompatActivity {
         }.start();
         mTimerRunning = true;
         mStartPauseButton.setText("pause");
+        mResetButton.setVisibility(View.INVISIBLE);
     }
 
     private void pauseTimer(){
         mCountDownTimer.cancel();
         mTimerRunning = false;
         mStartPauseButton.setText("start");
+        mResetButton.setVisibility(View.VISIBLE);
+    }
+
+    private void resetTimer(){
+        mTimeLeftInMillis = TIME_IN_MILLISECONDS;
+        updateCountdownText();
     }
 
     private void updateCountdownText(){
