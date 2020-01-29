@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF"
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
@@ -10,16 +11,18 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:textColor="#000"
         android:text="@string/timer_text"
         android:textSize="60sp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/timerTextView"
         android:layout_centerHorizontal="true"
-        android:text="@string/start_button_text"
+        android:background="#FFF"
+        android:src="@drawable/ic_play_arrow_black_24dp"
         android:textSize="16sp" />
 
     <Button
